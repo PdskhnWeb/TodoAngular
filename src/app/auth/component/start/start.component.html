@@ -1,0 +1,19 @@
+<div class="start">
+  <div class="start-header">
+    <div class="start-logo">
+      <h1>Todolist</h1>
+    </div>
+    <div class="start-header__clock">
+      <p>Местное время: {{ currentTime | date:'HH:mm:ss' }}</p>
+    </div>
+    <div class="start-header__about">
+      <button>Поддержка</button>
+    </div>
+  </div>
+
+  <div class="start-content">
+    <h1>Добро пожаловать!</h1>
+    <button [routerLink]="['/login']">Начать</button>
+  </div>
+</div>
+<router-outlet></router-outlet>

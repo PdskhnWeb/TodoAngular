@@ -1,0 +1,29 @@
+<div class="todo-container">
+  <h2>Мои задачи</h2>
+
+  <!-- Поле для ввода новой задачи -->
+  <input type="text" [(ngModel)]="newTodo" (keydown.enter)="addTodo()" placeholder="Введите задачу"
+    class="todo-input" />
+
+  <button (click)="addTodo()">Добавить</button>
+
+  <!-- Невыполненные задачи -->
+  <h3>Невыполненные задачи</h3>
+  <ul>
+    <li *ngFor="let todo of incompleteTodos" [class.completed]="todo.completed">
+      <input type="checkbox" (click)="toggleTodo(todo.id)" [checked]="todo.completed" />
+      {{ todo.title }}
+      <button (click)="deleteTodo(todo.id)">Удалить</button>
+    </li>
+  </ul>
+
+  <!-- Выполненные задачи -->
+  <h3>Выполненные задачи</h3>
+  <ul>
+    <li *ngFor="let todo of completedTodos" [class.completed]="todo.completed">
+      <input type="checkbox" (click)="toggleTodo(todo.id)" [checked]="todo.completed" />
+      {{ todo.title }}
+      <button (click)="deleteTodo(todo.id)">Удалить</button>
+    </li>
+  </ul>
+</div>

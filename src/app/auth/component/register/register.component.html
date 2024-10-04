@@ -1,0 +1,26 @@
+<div class="register-container">
+  <div class="register-box">
+    <h2>Регистрация</h2>
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      <div class="input-group">
+        <label for="username">Имя пользователя:</label>
+        <input placeholder="Имя пользователя" type="text" id="username" name="username" [(ngModel)]="username" required />
+      </div>
+      <div class="input-group">
+        <label for="email">Email:</label>
+        <input placeholder="Email" type="email" id="email" name="email" [(ngModel)]="email" required />
+      </div>
+      <div class="input-group">
+        <label for="password">Пароль:</label>
+        <input placeholder="Пароль" type="password" id="password" name="password" [(ngModel)]="password" required />
+      </div>
+      <div class="input-group">
+        <label for="confirmPassword">Подтвердите пароль:</label>
+        <input placeholder="Подтвердите пароль" type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" required />
+      </div>
+      <button type="submit" [disabled]="!registerForm.valid">Register</button>
+      <div *ngIf="registrationFailed" class="error">{{ errorMessage }}</div>
+    </form>
+    <p>Уже есть аккаунт? <a routerLink="/login">Авторизоваться</a></p>
+  </div>
+</div>
